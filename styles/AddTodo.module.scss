@@ -1,0 +1,19 @@
+
+.container {
+
+    & .opened {
+        display: block;
+        color: red;
+    }
+    
+    & .closed {
+        display: none;
+        color: blue;
+    }
+    & form {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+}
