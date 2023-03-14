@@ -2,16 +2,18 @@ package main
 
 import (
 	"log"
+	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 type Todo struct {
-	ID    int    `json:"id"`
-	Title string `json:"title"`
-	Text  string `json:"text"`
-	Done  bool   `json:"done"`
+	ID        int    `json:"id"`
+	Date      string `json:"date"`
+	Title     string `json:"title"`
+	Text      string `json:"text"`
+	Completed bool   `json:"completed"`
 }
 
 func main() {
@@ -36,6 +38,8 @@ func main() {
 			return err
 		}
 		todo.ID = len(todos) + 1
+		now := time.Now()
+		todo.Date = now.Format("2006/01/02 15:04")
 		todos = append(todos, *todo)
 		return c.JSON(todos)
 	})
@@ -48,11 +52,11 @@ func main() {
 		//t.IDでtodos.IDを走査して、idに一致していれば、その番号をtrueにする
 		for i, t := range todos {
 			if t.ID == id {
-				if todos[i].Done == true {
-					todos[i].Done = false
+				if todos[i].Completed == true {
+					todos[i].Completed = false
 					break
-				} else if todos[i].Done == false {
-					todos[i].Done = true
+				} else if todos[i].Completed == false {
+					todos[i].Completed = true
 					break
 				}
 			}
@@ -71,6 +75,11 @@ func main() {
 				todos = append(todos[:i], todos[i+1:]...)
 			}
 		}
+		return c.JSON(todos)
+	})
+
+	app.Put("/api/todos/allclear", func(c *fiber.Ctx) error {
+		todos = []Todo{}
 		return c.JSON(todos)
 	})
 

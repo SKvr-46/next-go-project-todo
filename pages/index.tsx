@@ -2,12 +2,15 @@ import useSWR from "swr"
 import styles from "styles/App.module.scss"
 import { AddTodo } from '@/components/AddTodo'
 import { DeleteTodo } from '@/components/DeleteTodo'
+import { AllClear } from "@/components/AllClearTodo"
+
 
 export const ENDPOINT = "http://localhost:4000"
 const fetcher  = (url:string) => fetch(`${ENDPOINT}/${url}`).then((r) => r.json())  //レスポンスをjsonに変換
 
 export interface Todo {
 	id:number    
+  date:string
 	title:string 
 	text:string 
 	completed:boolean
@@ -33,13 +36,19 @@ const App = () => {
         key={`todo__${todo.id}`}
         onClick={() => markTodo(todo.id)}
         >
-        {todo.id}:{todo.title} ~ {todo.text}
+          <div>
+            <p>#{todo.id} at {todo.date}</p>
+            <p
+            className={todo.completed ? styles.completed : styles.uncompleted}
+            > {todo.title}___{todo.text}</p>
+          </div>
         </li>
       ))}
       </ul>
     </div>
     <AddTodo mutate={mutate}/>
     <DeleteTodo mutate={mutate}/>
+    <AllClear mutate={mutate}/>
     </div>
   )
 }
