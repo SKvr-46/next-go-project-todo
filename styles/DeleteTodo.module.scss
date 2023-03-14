@@ -1,7 +1,22 @@
 .container {
     display: grid;
     place-items: center;
-    background: rgba(128, 128, 128, 0.4);
+    background: rgba(128, 128, 0, 0.4);
     border-radius: 20px;
     padding: 1em;
+
+    & form {
+        display: grid;
+        place-items: center;
+
+        & label {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        margin-top: 1em;
+        font-size: 24px;
+    }
+    }   
 }
+

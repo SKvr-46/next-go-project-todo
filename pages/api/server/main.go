@@ -21,6 +21,7 @@ func main() {
 	app := fiber.New()
 	todos := []Todo{}
 
+	//CORS　設定
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "http://localhost:3000",
 		AllowHeaders: "Origin, Content-Type, Accept",
@@ -30,7 +31,7 @@ func main() {
 		return c.JSON(todos)
 	})
 
-	//c(ontext)に、Postの内容があるので、リクエスト本文をパースして、todo構造体にデコード
+	//c(ontext)に、Postの内容があるので、リクエスト本文をパースして、todo構造体にデコード（BodyParser(todo)）
 	app.Post("/api/todos", func(c *fiber.Ctx) error {
 		//デコードするための構造体
 		todo := &Todo{}
@@ -39,11 +40,12 @@ func main() {
 		}
 		todo.ID = len(todos) + 1
 		now := time.Now()
-		todo.Date = now.Format("2006/01/02 15:04")
+		todo.Date = now.Format("06/01/02 15:04")
 		todos = append(todos, *todo)
 		return c.JSON(todos)
 	})
 
+	//選択したTodoのCompletedを変更する
 	app.Patch("/api/todos/:id/completed", func(c *fiber.Ctx) error {
 		id, err := c.ParamsInt("id")
 		if err != nil {
@@ -64,6 +66,7 @@ func main() {
 		return c.JSON(todos)
 	})
 
+	//選択したIDのTodoを消去する
 	app.Delete("/api/todos/:id/delete", func(c *fiber.Ctx) error {
 		id, err := c.ParamsInt("id")
 		if err != nil {
@@ -78,6 +81,7 @@ func main() {
 		return c.JSON(todos)
 	})
 
+	//Todosを空にする
 	app.Put("/api/todos/allclear", func(c *fiber.Ctx) error {
 		todos = []Todo{}
 		return c.JSON(todos)

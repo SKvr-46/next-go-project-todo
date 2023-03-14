@@ -24,7 +24,10 @@ export const DeleteTodo = ({mutate} : {mutate: KeyedMutator<Todo[]>}) => {
         <div className={styles.container}>
             <p>Delete Todo</p>
             <form onSubmit={form.onSubmit(deleteitem) }>
-                <input {...form.getInputProps("id")} />
+                <label>
+                    Put in ID
+                    <input {...form.getInputProps("id")} />
+                </label>
                 <button type="submit">Delete</button>
             </form>
         </div>

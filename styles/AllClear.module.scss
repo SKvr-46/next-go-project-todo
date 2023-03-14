@@ -1,3 +1,10 @@
 .allclearbutton {
     margin: 1em;
+    transition: all .4s;
+}
+
+.allclearbutton:hover {
+    margin: 1em;
+    color: crimson;
+    opacity: 1;
 }
