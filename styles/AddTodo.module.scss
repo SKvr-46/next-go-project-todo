@@ -1,19 +1,37 @@
 
 .container {
+    display: grid;
+    place-items: center;
 
     & .opened {
         display: block;
-        color: red;
     }
     
     & .closed {
         display: none;
-        color: blue;
     }
+
+    & label {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+    }
+
+
     & form {
         display: flex;
         flex-direction: column;
         gap: 2em;
+    }
+
+    & .addbutton {
+        margin: 2em 0 2em 0;
+    }
+
+
+    & button {
+        margin: 0 auto;
     }
 
 }

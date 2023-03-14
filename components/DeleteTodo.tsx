@@ -2,6 +2,7 @@ import { KeyedMutator, mutate } from "swr"
 import { ENDPOINT } from "@/pages"
 import { useForm } from "@mantine/form"
 import { Todo } from "@/pages"
+import styles from "styles/DeleteTodo.module.scss"
 
 export const DeleteTodo = ({mutate} : {mutate: KeyedMutator<Todo[]>}) => {
 
@@ -20,8 +21,8 @@ export const DeleteTodo = ({mutate} : {mutate: KeyedMutator<Todo[]>}) => {
     }
 
     return(
-        <div>
-            <h1>Delete Todo</h1>
+        <div className={styles.container}>
+            <p>Delete Todo</p>
             <form onSubmit={form.onSubmit(deleteitem) }>
                 <input {...form.getInputProps("id")} />
                 <button type="submit">Delete</button>

@@ -1,4 +1,5 @@
 import useSWR from "swr"
+import styles from "styles/App.module.scss"
 import { AddTodo } from '@/components/AddTodo'
 import { DeleteTodo } from '@/components/DeleteTodo'
 
@@ -24,7 +25,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
     <div>
       <ul>
       {data?.map((todo) =>(

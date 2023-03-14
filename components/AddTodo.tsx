@@ -35,13 +35,21 @@ export const AddTodo = ({ mutate }: {mutate : KeyedMutator<Todo[]>}) => {
         <div className={styles.container}>
             <div className={open ? styles.opened : styles.closed}>
                 <form onSubmit={form.onSubmit(createTodo)}>
+                    <label>Title
                     <input type="text" {...form.getInputProps("title")} />
-                    <textarea {...form.getInputProps("text")}></textarea>
-                    <button type="submit">Create Todo</button>
+                    </label>
+                    <label>
+                        Text
+                        <textarea {...form.getInputProps("text")}></textarea>
+                    </label>
+                    <button type="submit" className={styles.createbutton}>Create Todo</button>
                     <button type="button" onClick={() => setOpen(false)}>Close</button>
                 </form>
             </div>
-                <button onClick={() => setOpen(true)}>Add Todo</button>
+                <button 
+                onClick={() => setOpen(true)}
+                className={styles.addbutton}
+                >Add Todo</button>
         </div>
     )
 }

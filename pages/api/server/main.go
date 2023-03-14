@@ -30,6 +30,7 @@ func main() {
 
 	//c(ontext)に、Postの内容があるので、リクエスト本文をパースして、todo構造体にデコード
 	app.Post("/api/todos", func(c *fiber.Ctx) error {
+		//デコードするための構造体
 		todo := &Todo{}
 		if err := c.BodyParser(todo); err != nil {
 			return err
