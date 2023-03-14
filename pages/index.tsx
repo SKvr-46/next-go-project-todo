@@ -27,9 +27,12 @@ const App = () => {
     mutate(updated)
   }
 
+  //dataの要素がないなら、listwrapperの背景をなくすための値
+  const len = data?.length
+
   return (
     <div className={styles.container}>
-    <div>
+    <div className={len ? styles.listwrapper : styles.nonelistwrapper}>
       <ul>
       {data?.map((todo) =>(
         <li 
@@ -37,10 +40,12 @@ const App = () => {
         onClick={() => markTodo(todo.id)}
         >
           <div>
-            <p>#{todo.id} at {todo.date}</p>
+            <p
+            className={styles.firstline}
+            >#{todo.id} {todo.date}</p>
             <p
             className={todo.completed ? styles.completed : styles.uncompleted}
-            > {todo.title}___{todo.text}</p>
+            > {todo.title}：{todo.text}</p>
           </div>
         </li>
       ))}

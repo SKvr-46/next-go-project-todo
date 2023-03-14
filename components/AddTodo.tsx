@@ -48,7 +48,7 @@ export const AddTodo = ({ mutate }: {mutate : KeyedMutator<Todo[]>}) => {
             </div>
                 <button 
                 onClick={() => setOpen(true)}
-                className={styles.addbutton}
+                className={ open ? styles.addbuttonopen : styles.addbuttonclose }
                 >Add Todo</button>
         </div>
     )

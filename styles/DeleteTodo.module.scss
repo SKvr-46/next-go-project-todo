@@ -1,4 +1,7 @@
 .container {
     display: grid;
     place-items: center;
+    background: rgba(128, 128, 128, 0.4);
+    border-radius: 20px;
+    padding: 1em;
 }

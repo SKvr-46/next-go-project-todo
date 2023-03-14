@@ -2,9 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 li {
     list-style: none;
+}
+
+button {
+    padding: 0.3em;
+    border-radius: 10px;
+    margin: 0.2em;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.7;
 }
 

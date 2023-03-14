@@ -11,6 +11,13 @@
         display: none;
     }
 
+    & form {
+        background: rgba(0, 128, 128, 0.4);
+        border-radius: 20px;
+        padding: 2em;
+        margin: 3em;
+    }
+
     & label {
         display: flex;
         flex-direction: column;
@@ -25,10 +32,13 @@
         gap: 2em;
     }
 
-    & .addbutton {
-        margin: 2em 0 2em 0;
+    & .addbuttonopen {
+        display: none;
     }
 
+    & .addbuttonclose {
+        margin: 2em 0 2em 0;
+    }
 
     & button {
         margin: 0 auto;

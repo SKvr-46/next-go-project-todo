@@ -5,13 +5,29 @@
     place-items: center;
     padding: 3em;
 
+    & .listwrapper {
+        background: rgba(128, 0, 128, 0.4);
+        border-radius: 20px;
+        padding: 2em;
+
+        & li {
+            cursor: pointer;
+            margin: 1em 0 1em 0;
+
+            & .firstline {
+                font-size: 24px;
+            }
+        }
+    }
+
+    & .nonelistwrapper {
+        display: none;
+    }
+
     & .completed {
         color: green;
     }
 
 
-    & li {
-        cursor: pointer;
-    }
 }
 
