@@ -1,7 +1,6 @@
 package todo
 
 import (
-	"log"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
@@ -16,9 +15,7 @@ type Todo struct {
 	Completed bool   `json:"completed"`
 }
 
-func main() {
-
-	app := fiber.New()
+func SetupRoutes(app *fiber.App) {
 	todos := []Todo{}
 
 	//CORS　設定
@@ -86,6 +83,4 @@ func main() {
 		todos = []Todo{}
 		return c.JSON(todos)
 	})
-
-	log.Fatal(app.Listen(":4000"))
 }

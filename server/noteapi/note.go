@@ -1,8 +1,6 @@
 package note
 
 import (
-	"log"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 )
@@ -13,9 +11,8 @@ type Note struct {
 	Content string `json:"content"`
 }
 
-func main() {
+func SetupRoutes(app *fiber.App) {
 
-	app := fiber.New()
 	notes := []Note{}
 
 	app.Use(cors.New(cors.Config{
@@ -36,6 +33,4 @@ func main() {
 		notes = append(notes, *note)
 		return c.JSON(notes)
 	})
-
-	log.Fatal(app.Listen(":4000/notes"))
 }
