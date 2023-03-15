@@ -1,0 +1,26 @@
+
+.container {
+    display: grid;
+    place-items: center;
+    margin-top: 3em;
+
+    & form {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+
+        & label {
+            display: flex;
+            flex-direction: column;
+        }
+    }   
+    
+    & .opened {
+        display: block;
+    }
+
+    & .closed {
+        display: none;
+    }
+
+}

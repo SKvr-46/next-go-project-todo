@@ -3,6 +3,7 @@ import styles from "styles/App.module.scss"
 import { AddTodo } from '@/components/AddTodo'
 import { DeleteTodo } from '@/components/DeleteTodo'
 import { AllClear } from "@/components/AllClearTodo"
+import Link from "next/link"
 
 
 export const ENDPOINT = "http://localhost:4000"
@@ -54,6 +55,7 @@ const App = () => {
     <AddTodo mutate={mutate}/>
     <DeleteTodo mutate={mutate}/>
     <AllClear mutate={mutate}/>
+    <Link href="/notes">NOTES</Link>
     </div>
   )
 }
