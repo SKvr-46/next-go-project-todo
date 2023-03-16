@@ -33,4 +33,17 @@ func SetupRoutes(app *fiber.App) {
 		notes = append(notes, *note)
 		return c.JSON(notes)
 	})
+
+	app.Delete("/api/notes/:id/delete", func(c *fiber.Ctx) error {
+		id, err := c.ParamsInt("id")
+		if err != nil {
+			return err
+		}
+		for i, t := range notes {
+			if t.ID == id {
+				notes = append(notes[:i], notes[i+1:]...)
+			}
+		}
+		return c.JSON(notes)
+	})
 }

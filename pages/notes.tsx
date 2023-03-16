@@ -1,5 +1,6 @@
 import useSWR from "swr"
 import { AddNote } from "@/components/AddNote"
+import { DeleteNote } from "@/components/DeleteNote"
 import styles from "styles/Notes.module.scss"
 
 
@@ -18,7 +19,7 @@ const Notes = () => {
     const len = data?.length
 
     return(
-        <>  
+        <div className={styles.container}>  
             <div className={len ? styles.listwrapper : styles.nonelistwrapper}>
             <ul>
             {data?.map((note) =>(
@@ -26,7 +27,7 @@ const Notes = () => {
                 key={`todo__${note.id}`}
                 >
                 <div>
-                    <p>{note.title}</p>
+                    <p>#{note.id} {note.title}</p>
                     <p>{note.content}</p>
                 </div>
                 </li>
@@ -34,8 +35,20 @@ const Notes = () => {
             </ul>
             </div>
             <AddNote mutate={mutate}/>
-        </>
+            <DeleteNote mutate={mutate}/>
+        </div>
     )
 }
 
 export default Notes
+
+
+//swrを使わない場合
+//  useEffect(() => {
+    // const fetchData = async () => {
+    //     const response = await fetch(`${NOTESENDPOINT}/api/notes`)
+    //     const data = await response.json()
+    //     setNotes(data)
+    //   }
+    //   fetchData()
+    // }, [])

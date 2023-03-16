@@ -12,7 +12,7 @@ export const DeleteTodo = ({mutate} : {mutate: KeyedMutator<Todo[]>}) => {
         }
     })
 
-    const deleteitem = async (values: {id : number | string}) => {
+    const deleteNote = async (values: {id : number | string}) => {
         const updated = await fetch(`${ENDPOINT}/api/todos/${values.id}/delete`, {
             method: 'DELETE',
         }).then((r) => r.json())
@@ -23,7 +23,7 @@ export const DeleteTodo = ({mutate} : {mutate: KeyedMutator<Todo[]>}) => {
     return(
         <div className={styles.container}>
             <p>Delete Todo</p>
-            <form onSubmit={form.onSubmit(deleteitem) }>
+            <form onSubmit={form.onSubmit(deleteNote) }>
                 <label>
                     Put in ID
                     <input {...form.getInputProps("id")} />

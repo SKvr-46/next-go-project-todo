@@ -43,7 +43,10 @@ export const AddNote = ({mutate}: {mutate: KeyedMutator<Note[]>}) => {
                 </form>
             </div>
 
-            <button onClick={() => setOpen(true)}>Add Note</button>
+            <button 
+            onClick={() => setOpen(true)}
+            className={open ? styles.closed : styles.opened}
+            >Add Note</button>
         </div>
     )
 }

@@ -1,8 +1,29 @@
-.listwrapper {
+.container {
+    width: 92%;
+    margin: 0 auto;
     display: grid;
     place-items: center;
-}
+    padding-top: 3em;
 
-.nonelistwrapper {
-    display: none;
+    & .listwrapper {
+        display: grid;
+        place-items: center;
+        background: rgba(64, 0, 64, 0.4);
+        border-radius: 20px;
+        padding: 2em;
+    
+        & li {
+            cursor: pointer;
+            margin: 1em 0 1em 0;
+    
+            & .firstline {
+                font-size: 24px;
+            }
+        }
+    }
+    
+    .nonelistwrapper {
+        display: none;
+    }
+    
 }
