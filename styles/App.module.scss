@@ -1,9 +1,12 @@
 .container {
     width: 92%;
-    margin: 0 auto;
+    margin: 3em auto;
     display: grid;
     place-items: center;
     padding-top: 3em;
+    padding-bottom: 3em;
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 30px;
 
     & .listwrapper {
         background: rgba(64, 0, 64, 0.4);
