@@ -1,12 +1,12 @@
 import { KeyedMutator } from "swr"
 import { Todo } from "@/pages"
 import { ENDPOINT } from "@/pages"
-import styles from "styles/AllClear.module.scss"
+import styles from "styles/AllClearTodo.module.scss"
 
 
-export const AllClear = ({mutate} : {mutate: KeyedMutator<Todo[]>}) => {
+export const AllClearTodo = ({mutate} : {mutate: KeyedMutator<Todo[]>}) => {
 
-    const allClear = async () => {
+    const allClearTodo = async () => {
         const update = await fetch( `${ENDPOINT}/api/todos/allclear`, { 
             method: "PUT",
         }).then((r) => r.json())
@@ -16,7 +16,7 @@ export const AllClear = ({mutate} : {mutate: KeyedMutator<Todo[]>}) => {
 
     return(
         <button 
-        onClick={() => allClear()}
+        onClick={() => allClearTodo()}
         className={styles.allclearbutton}
         >All Clear</button>
     )

@@ -23,6 +23,7 @@ export const AddNote = ({mutate}: {mutate: KeyedMutator<Note[]>}) => {
             body: JSON.stringify(values)
         }).then((r) => r.json())
 
+        form.reset()
         setOpen(false)
         mutate(updated)
     }

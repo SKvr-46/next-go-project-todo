@@ -46,4 +46,10 @@ func SetupRoutes(app *fiber.App) {
 		}
 		return c.JSON(notes)
 	})
+
+	app.Put("/api/notes/allclear", func(c *fiber.Ctx) error {
+		//既存のnotesに空のスライスを代入(:= とするのはミスで、put終了後に戻る)
+		notes = []Note{}
+		return c.JSON(notes)
+	})
 }

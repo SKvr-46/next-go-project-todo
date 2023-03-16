@@ -1,7 +1,9 @@
 import useSWR from "swr"
 import { AddNote } from "@/components/AddNote"
 import { DeleteNote } from "@/components/DeleteNote"
+import { AllClearNote } from "@/components/AllClearNote"
 import styles from "styles/Notes.module.scss"
+import Link from "next/link"
 
 
 export const NOTESENDPOINT  = "http://localhost:4000"
@@ -36,6 +38,8 @@ const Notes = () => {
             </div>
             <AddNote mutate={mutate}/>
             <DeleteNote mutate={mutate}/>
+            <AllClearNote mutate={mutate}/>
+            <Link href="/">Todos</Link>
         </div>
     )
 }
